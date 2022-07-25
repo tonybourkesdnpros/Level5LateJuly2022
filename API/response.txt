@@ -1,0 +1,9 @@
+{
+  "jsonrpc": "2.0",
+  "id": "EapiExplorer-1",
+  "result": [
+    {
+      "output": "                                                                        Address\nInterface       IP Address          Status      Protocol         MTU    Owner  \n--------------- ------------------- ----------- ------------- --------- -------\nManagement0     192.168.0.24/24     up          up              1500           \n\n"
+    }
+  ]
+}
