@@ -1,0 +1,31 @@
+global: 
+  l3mtu: 9214
+devices:
+  leaf1-DC1:
+    interfaces:
+      loopback0: 192.168.101.11/32
+       loopback1: 192.168.102.11/32
+      Ethernet3: 192.168.103.0/31
+    BGP:
+      ASN: 65101
+  leaf2-DC1:
+    interfaces:
+      loopback0: 192.168.101.12/32
+      loopback1: 192.168.102.11/32
+      Ethernet3: 192.168.103.2/31
+    BGP:
+      ASN: 65101
+  leaf3-DC1:
+    interfaces:
+      loopback0: 192.168.101.13/32
+      loopback1: 192.168.102.13/32
+      Ethernet3: 192.168.103.4/31
+    BGP: 
+      ASN: 65102
+  leaf4-DC1: 
+    interfaces:
+      loopback0: 192.168.101.14/32
+      loopback1: 192.168.102.13/32
+      Ethernet3: 192.168.103.6/31
+    BGP:
+      ASN: 65102
