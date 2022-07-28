@@ -4,18 +4,6 @@
     tasks:
     - name: Upload interface configuration files
       arista.eos.eos_config:
-        src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}/{{inventory_hostname}}_interface.cfg"
+        src: "{{lookup('env','PWD')}}/configs/final/{{inventory_hostname}}_final.cfg"
         save_when: always
-
-    - name: Upload EVPN configuration files
-      arista.eos.eos_config:
-        src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}/{{inventory_hostname}}_EVPN.cfg"
-        save_when: always
-
-  - name: Uploading configs to switches
-    hosts: leafs_DC1, leafs_DC2
-    tasks:
-    - name: Upload VXLAN Tenant configuration files
-      arista.eos.eos_config:
-        src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}/{{inventory_hostname}}_VXLAN.cfg"
-        save_when: always
+        replace: config
