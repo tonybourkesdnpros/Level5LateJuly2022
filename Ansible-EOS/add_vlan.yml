@@ -1,0 +1,25 @@
+---
+  - hosts: leafs_DC1, leafs_DC2
+    name: Play for adding a VLAN
+    tasks:
+    - name: Create VLAN
+      arista.eos.eos_vlans:
+        config:
+        - vlan_id: 20
+          name: "DMZ"
+          state: active
+        - vlan_id: 30
+          name: "Internal"
+          state: active
+        state: merged
+    - name: Delete VLAN
+      arista.eos.eos_vlans:
+        config: 
+        - vlan_id: 10
+        state: deleted
+    - name: Copy run start
+      arista.eos.eos_command:
+        commands:
+        - wr
+
+ 

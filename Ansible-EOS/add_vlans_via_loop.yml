@@ -1,0 +1,15 @@
+---
+  - hosts: leaf1-DC1
+    name: Add VLANs via a look
+    tasks:
+    - name: Load external variables
+      include_vars:
+        file: "{{lookup('env','PWD')}}/vlans.yml"
+        name: vlans
+    - name: Loop through VLANs
+      arista.eos.eos_vlans:
+        config:
+        - vlan_id: "{{ item }}"
+          state: active
+        state: merged
+      loop: "{{ vlans.vlans }}"

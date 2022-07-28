@@ -1,0 +1,23 @@
+---
+  - name: Add User and SSH Key to Config
+    hosts: all
+    tasks:
+    - name: Create User
+      eos_user:
+        name: automator
+        nopassword: yes
+        privilege: 15
+        role: network-admin
+        state: present
+    - name: Set user privilege
+      eos_user: 
+        name: automator
+        nopassword: yes
+        privilege: 15
+        role: network-admin
+        state: present
+    - name: Add SSH Key
+      eos_user:
+        name: automator
+        sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
