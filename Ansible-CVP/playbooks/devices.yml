@@ -1,0 +1,14 @@
+---
+- name: Configure configlets on devices
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  vars: 
+    path: "{{lookup('env','PWD')}}"
+  vars_files: 
+     - ../vars/CVP-model.yml
+  tasks:
+    - name: "Add configlets to devices"
+      arista.cvp.cv_device_v3:
+        devices: "{{CVP_DEVICES_JINJA}}"
+        apply_mode: strict

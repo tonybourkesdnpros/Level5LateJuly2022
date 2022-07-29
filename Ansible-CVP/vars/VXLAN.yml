@@ -2,10 +2,6 @@ Tenants:
   Spock:
     L3VNI: 10000
     L2VNI:
-      DMZ:
-        VNID: 10001
-        VLANID: 101
-        SVI: 10.10.10.1/24
       Internal:
         VNID: 10002
         VLANID: 102
@@ -14,6 +10,10 @@ Tenants:
         VNID: 10003
         VLANID: 103
         SVI: 10.10.30.1/24
+      DB:
+        VNID: 10004
+        VLANID: 104
+        SVI: 10.10.104.1/24
   Blue:
     L3VNI: 20000
     L2VNI:
@@ -24,11 +24,7 @@ Tenants:
       Internal:
         VNID: 20002
         VLANID: 202
-        SVI: 10.10.20.1/24
-      DB:
-        VNID: 20003
-        VLANID: 203
-        SVI: 10.10.33.1/24
+        SVI: 10.10.20.1/24  
   Purple:
     L3VNI: 40000
     L2VNI: 

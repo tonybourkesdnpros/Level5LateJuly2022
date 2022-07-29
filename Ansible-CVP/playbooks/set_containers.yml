@@ -1,0 +1,14 @@
+---
+- name: Configure ATD for OSPF Underlay
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  vars: 
+    path: "{{lookup('env','PWD')}}"
+  vars_files: 
+     - ../vars/simple.yml
+  tasks:
+    - name: "Build Container topology"
+      arista.cvp.cv_container_v3:
+        topology: "{{CONTAINERS_SIMPLE}}"
+        apply_mode: strict

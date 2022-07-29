@@ -1,0 +1,11 @@
+---
+  - name: Playbook for uploading configlets into CloudVision
+    hosts: CloudVision
+    vars_files:
+      - ../vars/CVP-model.yml
+
+    tasks:
+      - name: Upload configlets 
+        arista.cvp.cv_configlet_v3:
+          configlets: "{{ CVP_CONFIGLETS_JINJA }}"
+          state: present

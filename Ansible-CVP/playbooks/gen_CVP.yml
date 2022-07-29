@@ -1,0 +1,11 @@
+  - name: Generate data model for uplaoding and assigning configlets
+    hosts: CloudVision
+    tasks:
+    - name: Register variables into dictionary
+      include_vars:
+        file: "{{lookup('env','PWD')}}/vars/underlay.yml"
+        name: underlay
+    - name: Create interface configuration files
+      template:
+        src: "{{lookup('env','PWD')}}/templates/CVP-model.j2"
+        dest: "{{lookup('env','PWD')}}/vars/CVP-model.yml"
